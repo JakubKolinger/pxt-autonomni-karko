@@ -18,8 +18,8 @@ let data: number;
 
 basic.forever(function () {
     data = pins.digitalReadPin(IR.l);
+    basic.showNumber(data)
 })
-
 
 
 
