@@ -1,3 +1,9 @@
+radio.setGroup(43)
+radio.setTransmitPower(7)
+radio.setFrequencyBand(81)
+radio.setTransmitSerialNumber(true)
+
+
 type IRC = {
     l: DigitalPin,
     c: DigitalPin,
@@ -39,7 +45,46 @@ basic.forever(function () {
     }
 })
 
+radio.onReceivedNumber(function(receivedNumber: number) {
+    if (receivedNumber === 1) {
+        P = P+50
+        L = 0
+    }
+    if (receivedNumber === 2) {
+        L = L+50
+        P = 0
+    }
+    if (receivedNumber === 3) {
+        P = P+50
+        L = L+50
+    }
+
+})
 basic.forever(function () {
-    PCAmotor.MotorRun(PCAmotor.Motors.M1, L)
+    if (dataC === 1 && dataL === 0 && dataP === 0){
+        L = L+50
+        P = P+50
+    }
+    if (dataP === 0 && dataL === 1) {
+        P = P+50
+        L = 0
+    }
+    if (dataL === 0 && dataP === 1) {
+        P = 0
+        L = L+50
+    }
+    if (dataC === 1 && dataL === 1 && dataP === 1){
+        radio.sendNumber(0)
+        P = 0
+        L = 0
+    }
+    if (dataC === 0 && dataL === 0 && dataP === 0){
+        P = -250
+        L = -250    
+        }
+})
+
+basic.forever(function () {
+    PCAmotor.MotorRun(PCAmotor.Motors.M1, L*-1)
     PCAmotor.MotorRun(PCAmotor.Motors.M4, P)
 })
