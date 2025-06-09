@@ -30,29 +30,15 @@ basic.forever(function () {
     dataP = pins.digitalReadPin(IR.p);
     
 })
-basic.forever(function () {
-    if (dataC === 1 && dataL === 0 && dataP === 0){
-        L = 250
-        P = 250
-    }
-    if (dataC === 0 && dataP === 0 && dataL === 1) {
-        P = 150
-        L = 50
-    }
-    if (dataC === 0 && dataL === 0 && dataP === 1) {
-        P = 50
-        L = 150
-    }
-})
 
 radio.onReceivedNumber(function(receivedNumber: number) {
     if (receivedNumber === 1) {
         P = 100
-        L = 0
+        L = 50
     }
     if (receivedNumber === 2) {
         L = 100
-        P = 0
+        P = 50
     }
     if (receivedNumber === 3) {
         P = 100
@@ -67,10 +53,10 @@ basic.forever(function () {
     }
     if (dataP === 0 && dataL === 1) {
         P = 150
-        L = 0
+        L = 50
     }
     if (dataL === 0 && dataP === 1) {
-        P = 0
+        P = 50
         L = 150
     }
     if (dataC === 1 && dataL === 1 && dataP === 1){
