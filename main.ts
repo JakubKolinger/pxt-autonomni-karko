@@ -88,3 +88,8 @@ basic.forever(function () {
     PCAmotor.MotorRun(PCAmotor.Motors.M1, L*-1)
     PCAmotor.MotorRun(PCAmotor.Motors.M4, P)
 })
+basic.forever(function (){
+    P = Math.max(-250, Math.min(250, P));
+    L = Math.max(-250, Math.min(250, L));
+})
+
