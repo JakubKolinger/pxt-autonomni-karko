@@ -53,20 +53,20 @@ basic.forever(function () {
     }
     if (dataP === 0 && dataL === 1) {
         P = 250
-        L = 50
+        L = 100
     }
     if (dataL === 0 && dataP === 1) {
-        P = 50
+        P = 100
         L = 250
     }
-    if (dataC === 1 && dataL === 1 && dataP === 1){
+    if (dataL === 1 && dataP === 1){
         radio.sendNumber(0)
         P = 0
         L = 0
     }
     if (dataC === 0 && dataL === 0 && dataP === 0){
-        P = -100
-        L = -100
+        P = -250
+        L = -250
         }
 })
 
