@@ -65,8 +65,8 @@ basic.forever(function () {
         L = 0
     }
     if (dataC === 0 && dataL === 0 && dataP === 0){
-        P = -150
-        L = -150
+        P = -100
+        L = -100
         }
 })
 
