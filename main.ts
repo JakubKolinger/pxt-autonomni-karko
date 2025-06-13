@@ -48,21 +48,21 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 })
 basic.forever(function () {
     if (dataC === 1 && dataL === 0 && dataP === 0){
-        L = 250
-        P = 250
+        L = 150
+        P = 150
     }
     if (dataP === 0 && dataL === 1) {
         P = 250
-        L = 100
+        L = 50
     }
     if (dataL === 0 && dataP === 1) {
-        P = 100
+        P = 50
         L = 250
     }
     if (dataL === 1 && dataP === 1){
         radio.sendNumber(0)
         P = 0
-        L = -20
+        L = 0
     }
     
 })
