@@ -32,18 +32,22 @@ basic.forever(function () {
 })
 
 radio.onReceivedNumber(function(receivedNumber: number) {
-    if (receivedNumber === 1) {
-        P = 100
-        L = 50
+    let serial: number = radio.receivedPacket(RadioPacketProperty.SerialNumber)
+    if (serial = -978678300) {
+        if (receivedNumber === 1) {
+            P = 100
+            L = 50
+        }
+        if (receivedNumber === 2) {
+            L = 100
+            P = 50
+        }
+        if (receivedNumber === 3) {
+            P = 100
+            L = 100
+        }
     }
-    if (receivedNumber === 2) {
-        L = 100
-        P = 50
-    }
-    if (receivedNumber === 3) {
-        P = 100
-        L = 100
-    }
+    
 
 })
 basic.forever(function () {
