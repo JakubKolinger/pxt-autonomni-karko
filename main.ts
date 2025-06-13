@@ -62,12 +62,9 @@ basic.forever(function () {
     if (dataL === 1 && dataP === 1){
         radio.sendNumber(0)
         P = 0
-        L = 0
+        L = -20
     }
-    if (dataC === 0 && dataL === 0 && dataP === 0){
-        P = -250
-        L = -250
-        }
+    
 })
 
 basic.forever(function () {
