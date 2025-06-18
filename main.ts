@@ -37,13 +37,13 @@ radio.onReceivedNumber(function(receivedNumber: number) {
     if (serial = -978678300) {
         if (krizovatka === true) {
             if (receivedNumber === 1) {
-                P = 250
-                L = 50
+                P = 200
+                L = -200
                 krizovatka = false
             }
             if (receivedNumber === 2) {
-                L = 250
-                P = 50
+                L = 200
+                P = -200
                 krizovatka = false
             }
             if (receivedNumber === 3) {
@@ -60,16 +60,21 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 basic.forever(function () {
     if (krizovatka === false) {
         if (dataC === 1 && dataL === 0 && dataP === 0) {
+        
+            L = 200
+            P = 200
+
             L = 250
             P = 250
+
         }
         if (dataP === 0 && dataL === 1) {
-            P = 250
-            L = 50
+            P = 200
+            L = -200
         }
         if (dataL === 0 && dataP === 1) {
-            P = 50
-            L = 250
+            P = -200
+            L = 200
         }
     }
     
